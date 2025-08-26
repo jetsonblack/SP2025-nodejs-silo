@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -f server.pid ]; then
+  kill $(cat server.pid)
+  rm server.pid
+  echo "Server stopped."
+else
+  echo "No server.pid file found. Server might not be running."
+fi

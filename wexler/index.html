@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MongoDB Commands</title>
+</head>
+<body>
+  <h1>MongoDB Commands for Lesson 16</h1>
+
+  <h2>Access Mongo Shell</h2>
+  <p><code>/nobackup/jetblack/348/mongodb/mongodb/bin/mongo --port 12005</code></p>
+  <p>We use the above command to enter the Mongo shell.</p>
+
+  <h2>List Databases</h2>
+  <p><code>show dbs</code></p>
+  <p>We use this to see what databases exist on MongoDB.</p>
+
+  <h2>Select Database</h2>
+  <p><code>use confetti_cuisine</code></p>
+  <p>We use this to select the <strong>confetti_cuisine</strong> database for Lesson 16.</p>
+
+  <h2>Show Subscribers Data</h2>
+  <p><code>db.subscribers.find().pretty()</code></p>
+  <p>We use this to display subscriber data in a readable format.</p>
+
+  <h2>Ports</h2>
+  <ul>
+    <li><strong>12004</strong>: Web page</li>
+    <li><strong>12005</strong>: MongoDB</li>
+  </ul>
+
+  <h2> Insert Courses</h2>
+  <p>use this to populate lesson29 courses</p>
+  <p><code>
+    db.courses.insertMany([<br>
+    {<br>
+      title: "Cooking with Jetson",<br>
+      description: "Master the art of culinary improvisation.",<br>
+      items: ["Creativity", "Timing", "Knife Skills"] <br>
+    { <br>
+      title: "Advanced Node.js", <br>
+      description: "Async patterns, scaling, and performance tuning.", <br>
+      items: ["Event Loop", "Cluster Module", "Streams"] <br>
+    } <br>
+  ]) <br>
+  </code></p>
+</body>
+</html>

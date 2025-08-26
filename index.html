@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 
+___________________________________________________________________________
+
+                            copyright � 2024 Jetson Black
+                            x.com/jetsonbb
+                            http://silo.cs.indiana.edu:56079/
+
+                            just a simple landing page  
+                            for my A348 Class [MEAN]!
+___________________________________________________________________________
+-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="language" content="English" />
+    <meta name="author" content="jetson" />
+    <meta name="title" content="http://silo.cs.indiana.edu:56079/" />
+    <meta name="keywords" content="jetsonbb, jetsonblack, a348jetson, jetson, a348" />
+    <meta property="og:title" content="asokry.neocities.org" />
+    <meta property="og:description" content="bababooey - @jetsonbb" />
+    <meta property="og:image" content="https://i.postimg.cc/8cGBQQ0B/icoin.png" />
+    <meta property="og:url" content="http://silo.cs.indiana.edu:56079/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="jetson" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@jetsonbb" />
+    <meta name="twitter:site" content="@jetsonbb" />
+    <meta name="twitter:title" content="asokry.neocities.org" />
+    <meta name="twitter:description" content="pookie, what - @jetsonbb" />
+    <meta name="twitter:image" content="https://i.postimg.cc/8cGBQQ0B/icoin.png" />
+    <meta name="twitter:url" content="http://silo.cs.indiana.edu:56079/" />
+    <title>jetson's zany cat website</title>
+    <link rel="icon" href="https://i.postimg.cc/8cGBQQ0B/icoin.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --color-bg1: rgb(108, 0, 162);
+        --color-bg2: rgb(0, 17, 82);
+        --color1: 18, 113, 255;
+        --color2: 221, 74, 255;
+        --color3: 100, 220, 255;
+        --color4: 200, 50, 50;
+        --color5: 180, 180, 50;
+        --color-interactive: 140, 100, 255;
+        --circle-size: 80%;
+        --blending: hard-light;
+        --bg: #0F1419;
+        --comment: #5C6773;
+        --markup: #F07178;
+        --constant: #FFEE99;
+        --operator: #E7C547;
+        --tag: #36A3D9;
+        --regexp: #95E6CB;
+        --string: #B8CC52;
+        --function: #FFB454;
+        --special: #E6B673;
+        --keyword: #FF7733;
+        --error: #FF3333;
+        --accent: #F29718;
+        --panel: #14191F;
+        --guide: #2D3640;
+        --line: #151A1E;
+        --selection: #253340;
+        --fg: #E6E1CF;
+        --fg_idle: #3E4B59;
+      }
+
+      @keyframes moveInCircle {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        50% {
+          transform: rotate(180deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes moveVertical {
+        0% {
+          transform: translateY(-50%);
+        }
+
+        50% {
+          transform: translateY(50%);
+        }
+
+        100% {
+          transform: translateY(-50%);
+        }
+      }
+
+      @keyframes moveHorizontal {
+        0% {
+          transform: translateX(-50%) translateY(-10%);
+        }
+
+        50% {
+          transform: translateX(50%) translateY(10%);
+        }
+
+        100% {
+          transform: translateX(-50%) translateY(-10%);
+        }
+      }
+
+      .gradient-bg {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        overflow: hidden;
+        background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .gradient-bg svg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .gradients-container {
+        filter: url(#goo) blur(10px);
+        width: 100%;
+        height: 100%;
+        position: relative;
+        contain: paint;
+      }
+
+      .g1,
+      .g2,
+      .g3,
+      .g4,
+      .g5,
+      .interactive {
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        position: absolute;
+      }
+
+      .g1 {
+        background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+        mix-blend-mode: var(--blending);
+        width: var(--circle-size);
+        height: var(--circle-size);
+        top: calc(50% - var(--circle-size) / 2);
+        left: calc(50% - var(--circle-size) / 2);
+        transform-origin: center;
+        animation: moveVertical 30s ease infinite;
+      }
+
+      .g2 {
+        background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+        mix-blend-mode: var(--blending);
+        width: var(--circle-size);
+        height: var(--circle-size);
+        top: calc(50% - var(--circle-size) / 2);
+        left: calc(50% - var(--circle-size) / 2);
+        transform-origin: calc(50% - 400px);
+        animation: moveInCircle 20s reverse infinite;
+      }
+
+      .g3 {
+        background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+        mix-blend-mode: var(--blending);
+        width: var(--circle-size);
+        height: var(--circle-size);
+        top: calc(50% - var(--circle-size) / 2 + 200px);
+        left: calc(50% - var(--circle-size) / 2 - 500px);
+        transform-origin: calc(50% + 400px);
+        animation: moveInCircle 40s linear infinite;
+      }
+
+      .g4 {
+        background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+        mix-blend-mode: var(--blending);
+        width: var(--circle-size);
+        height: var(--circle-size);
+        top: calc(50% - var(--circle-size) / 2);
+        left: calc(50% - var(--circle-size) / 2);
+        transform-origin: calc(50% - 200px);
+        animation: moveHorizontal 40s ease infinite;
+        opacity: 0.7;
+      }
+
+      .g5 {
+        background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+        mix-blend-mode: var(--blending);
+        width: calc(var(--circle-size) * 2);
+        height: calc(var(--circle-size) * 2);
+        top: calc(50% - var(--circle-size));
+        left: calc(50% - var(--circle-size));
+        transform-origin: calc(50% - 800px) calc(50% + 200px);
+        animation: moveInCircle 20s ease infinite;
+      }
+
+      .interactive {
+        background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+        mix-blend-mode: var(--blending);
+        width: 100%;
+        height: 100%;
+        top: -50%;
+        left: -50%;
+        opacity: 0.7;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Dongle', sans-serif;
+        background: transparent;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      .start {
+        font-size: 150%;
+      }
+
+      .start * {
+        margin: 0;
+        padding: 0;
+        color: white;
+      }
+
+      .start p,
+      .start a {
+        margin-top: 0.5rem;
+        text-shadow: 2px 2px 5px black;
+      }
+
+      .main-container {
+        padding: 2rem;
+        max-width: 800px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        border-radius: 12px;
+      }
+
+      .tilt {
+        transform: rotate(5deg);
+        display: inline-block;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .content-container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column; /* ← this is the key addition */
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        color: white;
+      }
+      .collapsible *{
+        font-size: 2rem;
+      }
+      .collapsible h3{
+        text-decoration: underline;
+      }
+      .collapsible h3:hover{
+        color: var(--error);
+      }
+      .collapsible-header {
+        margin-bottom: 0;
+      }
+
+      .collapsible-content p {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gradient-bg">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div class="gradients-container">
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g4"></div>
+        <div class="g5"></div>
+        <div class="interactive"></div>
+      </div>
+    </div>
+    <div class="main-container">
+      <div class="start">
+        <img src="photos/maxwell.gif" alt="maxwell-cat" class="cat-click">
+        <p style="font-family: 'Times New Roman', Times, serif;">
+          <b>? my name is jetson and i like <span class="tilt">cats</span> ? </b>
+        </p>
+        <a href="http://silo.cs.indiana.edu:56779/" class="button">Back Home</a>
+        <p>
+          <i style="font-size: 1rem; text-shadow: 2px 2px 5px var(--error);">psst, click the cat</i>
+        </p>
+        <a href="zanyaccess.log" style="text-decoration: none;"><p id="visit-count" style="margin-top: 0.5rem; font-size: 1.2rem;"></p></a>
+      </div>
+      <div class="content hidden">
+        <div class="content-container">
+          <img src="photos/maxwell.gif" alt="maxwell-cat" class="cat-click">
+          
+          <div class="collapsible">
+            <h3 class="collapsible-header">week11</h3>
+            <div class="collapsible-content">
+                <p><a href="homework08.html">homework08</a></p>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const cats = document.getElementsByClassName("cat-click");
+      for (let i = 0; i < cats.length; i++) {
+        cats[i].addEventListener("click", function() {
+          document.querySelector(".start").classList.toggle("hidden");
+          document.querySelector(".content").classList.toggle("hidden");
+        });
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const interBubble = document.querySelector('.interactive');
+        let curX = 0,
+          curY = 0,
+          tgX = 0,
+          tgY = 0;
+
+        function move() {
+          curX += (tgX - curX) / 20;
+          curY += (tgY - curY) / 20;
+          interBubble.style.transform = 'translate3d(' + Math.round(curX) + 'px, ' + Math.round(curY) + 'px, 0)';
+          requestAnimationFrame(move);
+        }
+        window.addEventListener('mousemove', (event) => {
+          tgX = event.clientX;
+          tgY = event.clientY;
+        });
+        move();
+      });
+
+      function setTimeOfDayColors() {
+        const hour = new Date().getHours();
+        if (hour >= 5 && hour < 12) {
+          document.documentElement.style.setProperty('--color-bg1', 'rgb(255, 180, 50)');
+          document.documentElement.style.setProperty('--color-bg2', 'rgb(255, 220, 150)');
+          document.documentElement.style.setProperty('--color1', '255, 120, 0');
+          document.documentElement.style.setProperty('--color2', '255, 160, 80');
+          document.documentElement.style.setProperty('--color3', '255, 190, 120');
+          document.documentElement.style.setProperty('--color4', '255, 80, 0');
+          document.documentElement.style.setProperty('--color5', '255, 220, 120');
+          document.documentElement.style.setProperty('--color-interactive', '255, 150, 0');
+        } else if (hour >= 12 && hour < 18) {
+          document.documentElement.style.setProperty('--color-bg1', 'rgb(0, 120, 255)');
+          document.documentElement.style.setProperty('--color-bg2', 'rgb(80, 180, 255)');
+          document.documentElement.style.setProperty('--color1', '20, 180, 255');
+          document.documentElement.style.setProperty('--color2', '150, 200, 255');
+          document.documentElement.style.setProperty('--color3', '80, 160, 255');
+          document.documentElement.style.setProperty('--color4', '0, 80, 180');
+          document.documentElement.style.setProperty('--color5', '200, 240, 255');
+          document.documentElement.style.setProperty('--color-interactive', '120, 220, 255');
+        } else {
+          document.documentElement.style.setProperty('--color-bg1', 'rgb(20, 0, 50)');
+          document.documentElement.style.setProperty('--color-bg2', 'rgb(60, 0, 90)');
+          document.documentElement.style.setProperty('--color1', '180, 0, 220');
+          document.documentElement.style.setProperty('--color2', '100, 0, 150');
+          document.documentElement.style.setProperty('--color3', '50, 0, 80');
+          document.documentElement.style.setProperty('--color4', '255, 100, 200');
+          document.documentElement.style.setProperty('--color5', '140, 0, 100');
+          document.documentElement.style.setProperty('--color-interactive', '200, 100, 255');
+        }
+      }
+      setTimeOfDayColors();
+      fetch('/track').then(res => res.json()).then(data => {
+        document.getElementById('visit-count').innerText = `👁${data.count}`;
+      }).catch(() => {
+        document.getElementById('visit-count').innerText = "couldn't fetch view count";
+      });
+
+      function isJetsonWaterfox() {
+        const ua = navigator.userAgent;
+        console.log("[Debug] Current User-Agent:", ua);
+        return ua.includes("JetsonBrowser/1.0");
+      }
+      if (isJetsonWaterfox()) {
+        console.log("[Debug] Jetson's Waterfox detected. Applying optimized settings...");
+        document.querySelector(".gradients-container").style.filter = "none";
+        document.querySelectorAll(".g1, .g2, .g3, .g4, .g5").forEach(el => {
+          el.style.animation = "none";
+          el.style.opacity = "0.4";
+        });
+      } else {
+        console.log("[Debug] Standard browser detected. Running default animations.");
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+      const collapsibles = document.querySelectorAll('.collapsible');
+
+      collapsibles.forEach(collapsible => {
+        const header = collapsible.querySelector('.collapsible-header');
+        const content = collapsible.querySelector('.collapsible-content');
+
+        content.style.display = 'none';
+
+        header.style.cursor = 'pointer';
+        header.addEventListener('click', () => {
+          const isOpen = content.style.display === 'block';
+          content.style.display = isOpen ? 'none' : 'block';
+        });
+      });
+    });
+    </script>
+  </body>
+</html>
